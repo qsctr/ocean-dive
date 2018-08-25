@@ -1,5 +1,5 @@
 ﻿public enum FishType {
-	Herring,
-	Tuna,
-	Barracuda
+    Herring,
+    Tuna,
+    Barracuda
 }

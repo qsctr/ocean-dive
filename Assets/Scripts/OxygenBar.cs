@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public partial class Game {
 
-	public GameObject oxygenBar;
+    public GameObject oxygenBar;
 
     Image oxygenBarImage;
     RectTransform oxygenBarTransform;

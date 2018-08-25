@@ -2,17 +2,17 @@
 
 public partial class Game {
 
-	public Text centerText;
+    public Text centerText;
 
-	void ShowMessage(string message) {
-		centerText.text = message;
-		Fade();
-		centerText.gameObject.SetActive(true);
-	}
+    void ShowMessage(string message) {
+        centerText.text = message;
+        Fade();
+        centerText.gameObject.SetActive(true);
+    }
 
-	void HideMessage() {
-		centerText.gameObject.SetActive(false);
-		Unfade();
-	}
+    void HideMessage() {
+        centerText.gameObject.SetActive(false);
+        Unfade();
+    }
 
 }

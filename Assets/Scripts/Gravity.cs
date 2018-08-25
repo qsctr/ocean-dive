@@ -2,8 +2,8 @@
 
 public partial class Game {
 
-	void ZeroGravity() {
-		Physics.gravity = Vector3.zero;
-	}
+    void ZeroGravity() {
+        Physics.gravity = Vector3.zero;
+    }
 
 }

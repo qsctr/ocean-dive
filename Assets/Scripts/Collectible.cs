@@ -2,6 +2,6 @@
 
 public class Collectible : MonoBehaviour {
 
-	public CollectibleType type { get; set; }
+    public CollectibleType type { get; set; }
 
 }

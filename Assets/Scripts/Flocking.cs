@@ -42,7 +42,8 @@ public partial class Game {
     }
 
     void PopulateFlocks() {
-        PopulateFlock(ref herringFlock1, FishType.Herring, false, new Fish.Settings {
+        PopulateFlock(ref herringFlock1, FishType.Herring, false,
+        new Fish.Settings {
             maxSpeed = 5,
             maxForce = 0.05f,
             separationRadius = 1,
@@ -51,7 +52,8 @@ public partial class Game {
             alignmentWeight = 1,
             cohesionWeight = 1
         }, 50, 3);
-        PopulateFlock(ref herringFlock2, FishType.Herring, false, new Fish.Settings {
+        PopulateFlock(ref herringFlock2, FishType.Herring, false,
+        new Fish.Settings {
             maxSpeed = 5,
             maxForce = 0.05f,
             separationRadius = 1,
@@ -78,7 +80,8 @@ public partial class Game {
             alignmentWeight = 1,
             cohesionWeight = 1
         }, 100, 3);
-        PopulateFlock(ref barracudaFlock, FishType.Barracuda, true, new Fish.Settings {
+        PopulateFlock(ref barracudaFlock, FishType.Barracuda, true,
+        new Fish.Settings {
             maxSpeed = 8,
             maxForce = 0.05f,
             separationRadius = 10,
@@ -89,18 +92,22 @@ public partial class Game {
         }, 20, 20);
     }
 
-    void PopulateFlock(ref List<Fish> flock, FishType fishType, bool addMeshCollider,
-        Fish.Settings settings, int fishCount, int initialFlockRadius) {
+    void PopulateFlock(ref List<Fish> flock, FishType fishType,
+    bool addMeshCollider, Fish.Settings settings, int fishCount,
+    int initialFlockRadius) {
         flock = new List<Fish>(fishCount);
         var fishPrefab = GetFishPrefab(fishType);
         var maxRadius = waterSurface.localScale.x - initialFlockRadius;
         var center2d = Random.insideUnitCircle * maxRadius;
-        var minHeight = seabedTerrainYPosition + seabedTerrainHeight + initialFlockRadius;
+        var minHeight = seabedTerrainYPosition
+            + seabedTerrainHeight + initialFlockRadius;
         var centerY = Random.Range(minHeight, -initialFlockRadius);
         var center = new Vector3(center2d.x, centerY, center2d.y);
         for (var i = 0; i < fishCount; i++) {
-            var position = center + Random.insideUnitSphere * initialFlockRadius;
-            var fishGameObject = Instantiate(fishPrefab, position, Quaternion.identity);
+            var position = center
+                + Random.insideUnitSphere * initialFlockRadius;
+            var fishGameObject =
+                Instantiate(fishPrefab, position, Quaternion.identity);
             if (addMeshCollider) {
                 var fishBody = fishGameObject.transform.GetChild(1).gameObject;
                 var meshCollider = fishBody.AddComponent<MeshCollider>();
@@ -109,7 +116,8 @@ public partial class Game {
             }
             var animator = fishGameObject.GetComponent<Animator>();
             if (animator != null) {
-                animator.runtimeAnimatorController = GetFishAnimatorController(fishType);
+                animator.runtimeAnimatorController =
+                    GetFishAnimatorController(fishType);
             }
             var fish = fishGameObject.AddComponent<Fish>();
             fish.settings = settings;

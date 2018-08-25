@@ -16,7 +16,8 @@ public partial class Game {
         headsetTransform = VRTK_DeviceFinder.HeadsetTransform();
         leftController = VRTK_DeviceFinder.GetControllerLeftHand();
         rightController = VRTK_DeviceFinder.GetControllerRightHand();
-        findReady = playAreaTransform && headsetTransform && leftController && rightController;
+        findReady = playAreaTransform && headsetTransform && leftController
+            && rightController;
         if (findReady) {
             OnFindReady();
         }
